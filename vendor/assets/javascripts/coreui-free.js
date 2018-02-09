@@ -1,18 +1,18 @@
-// = require jquery
-// = require popper
-// = require bootstrap
-// = require pace
-// = require moment
-// = require Chart
+//= require jquery
+//= require popper
+//= require bootstrap
+//= require pace
+//= require moment
+//= require Chart
+//= require_self
 
-console.log('CoreUI Free: version v1.0.9');
+console.log('CoreUI Free: version v1.0.10');
 
 /*****
 * CONFIGURATION
 */
 
 //Main navigation
-$.navigation = $('nav > ul.nav');
 
 $.panelIconOpened = 'icon-arrow-up';
 $.panelIconClosed = 'icon-arrow-down';
@@ -37,6 +37,7 @@ $.grayLightest =  '#f8f9fa';
 */
 
 $(document).ready(function($){
+  $.navigation = $('nav > ul.nav');
 
   // Add class .active to current link
   $.navigation.find('a').each(function(){
@@ -116,28 +117,28 @@ $(document).ready(function($){
     e.preventDefault();
   });
 
-});
 
-/****
-* CARDS ACTIONS
-*/
+  /****
+  * CARDS ACTIONS
+  */
 
-$('.card-actions').on('click', 'a, button', function(e){
-  e.preventDefault();
+  $('.card-actions').on('click', 'a, button', function(e){
+    e.preventDefault();
 
-  if ($(this).hasClass('btn-close')) {
-    $(this).parent().parent().parent().fadeOut();
-  } else if ($(this).hasClass('btn-minimize')) {
-    // var $target = $(this).parent().parent().next('.card-body').collapse({toggle: true});
-    if ($(this).hasClass('collapsed')) {
-      $('i',$(this)).removeClass($.panelIconOpened).addClass($.panelIconClosed);
-    } else {
-      $('i',$(this)).removeClass($.panelIconClosed).addClass($.panelIconOpened);
+    if ($(this).hasClass('btn-close')) {
+      $(this).parent().parent().parent().fadeOut();
+    } else if ($(this).hasClass('btn-minimize')) {
+      // var $target = $(this).parent().parent().next('.card-body').collapse({toggle: true});
+      if ($(this).hasClass('collapsed')) {
+        $('i',$(this)).removeClass($.panelIconOpened).addClass($.panelIconClosed);
+      } else {
+        $('i',$(this)).removeClass($.panelIconClosed).addClass($.panelIconOpened);
+      }
+    } else if ($(this).hasClass('btn-setting')) {
+      $('#myModal').modal('show');
     }
-  } else if ($(this).hasClass('btn-setting')) {
-    $('#myModal').modal('show');
-  }
 
+  });
 });
 
 function capitalizeFirstLetter(string) {
