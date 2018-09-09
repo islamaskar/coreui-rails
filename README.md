@@ -59,6 +59,34 @@ $navbar-brand-logo: url(asset-path("my_logo.png"));
 //= require coreui-free
 ```
 
+## Configuration
+
+This gem ships with two different versions the main one explained above is to install the "full CoreUI suite", but there is
+also a base configuration for those who want to customize what gets loaded. You can remove any parts you are not using.
+
+```javascript
+// app/assets/javascripts/application.js
+
+//= require jquery3
+//= require popper
+//= require bootstrap
+//= require pace
+//= require moment
+//= require Chart
+//= require coreui-base
+```
+
+```scss
+// app/assets/stylesheets/application.scss
+
+@import "flag-icon/flag-icon"; // For flag icons
+@import "font-awesome-sprockets"; // For icons, provides scss helpers (optional)
+@import "font-awesome"; // For icons
+@import "simple-line-icons/simple-line-icons"; // More icons, used in navigation
+@import "bootstrap-variables";
+@import "bootstrap";
+@import "coreui/base";
+```
 
 ## Includes
 
