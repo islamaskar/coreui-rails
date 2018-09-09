@@ -27,7 +27,7 @@
     },
     ajax: {
       trackMethods: ['GET'],
-      trackWebSockets: true,
+      trackWebSockets: false,
       ignoreURLs: []
     }
   };
